@@ -32,7 +32,7 @@ public class ProtagonistAnimation {
 //        }
 
         animation = new Animation<>(1.0f/fps, subRegions);
-        animation.setPlayMode(Animation.PlayMode.LOOP);
+        animation.setPlayMode(mode);
     }
 
     public void setTime(float time) {
