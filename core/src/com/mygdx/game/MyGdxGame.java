@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.Map;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
@@ -31,6 +32,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	private ProtagonistAnimation idleRight;
 	private ProtagonistAnimation idleLeft;
 //	private Label label;
+	private ShapeRenderer renderer;
 	private TiledMap map;
 	private OrthogonalTiledMapRenderer mapRenderer;
 	private OrthographicCamera camera;
@@ -39,9 +41,12 @@ public class MyGdxGame extends ApplicationAdapter {
 	private Boolean lastKey;
 	private int[] foreGround, backGround;
 	private int x, y;
+	private Texture back;
+	private Rectangle heroRect;
 
 	@Override
 	public void create () {
+		back = new Texture("back.jpg");
 		map = new TmxMapLoader().load("maps/MyMap_1.tmx");
 		mapRenderer = new OrthogonalTiledMapRenderer(map);
 
@@ -49,10 +54,13 @@ public class MyGdxGame extends ApplicationAdapter {
 //		foreGround[0] = map.getLayers().get()
 
 		batch = new SpriteBatch();
+		renderer = new ShapeRenderer();
 		protAnim = new ProtagonistAnimation("samurai.png", 10, 1, 16.0f, Animation.PlayMode.LOOP);
 		protAnimReverse = new ProtagonistAnimation("samuraiReversed.png", 10, 1, 16.0f, Animation.PlayMode.LOOP_REVERSED);
 		idleLeft = new ProtagonistAnimation("idleLeft.png", 1, 1, 1f, Animation.PlayMode.NORMAL);
 		idleRight = new ProtagonistAnimation("idleRight.png", 1, 1, 1f, Animation.PlayMode.NORMAL);
+		heroRect = new Rectangle(Gdx.graphics.getWidth()/2 + protAnim.getTexture().getRegionWidth()/4,Gdx.graphics.getHeight()/2 - protAnim.getTexture().getRegionHeight()/4,
+				protAnim.getTexture().getRegionWidth()/2, protAnim.getTexture().getRegionHeight());
 //		label = new Label();
 		img = new Texture("back.png");
 
@@ -85,6 +93,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) camera.position.x = camera.position.x - 3f;
 		if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) camera.position.x = camera.position.x + 3f;
 		camera.update();
+
+		batch.begin();
+		batch.draw(back, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		batch.end();
 
 		mapRenderer.setView(camera);
 		mapRenderer.render();
@@ -122,6 +134,14 @@ public class MyGdxGame extends ApplicationAdapter {
 		}
 
 		batch.end();
+
+		renderer.begin(ShapeRenderer.ShapeType.Line);
+		for (int i = 0; i < coinList.size(); i++) {
+			coinList.get(i).shapeDraw(renderer, camera);
+		}
+		renderer.rect(heroRect.x, heroRect.y, heroRect.width, heroRect.height);
+		renderer.end();
+
 	}
 	
 	@Override
