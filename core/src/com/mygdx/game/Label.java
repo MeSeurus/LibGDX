@@ -19,7 +19,11 @@ public class Label {
         bitmapFont.getData().setScale(1);
     }
 
-    public void draw(SpriteBatch batch) {
-        bitmapFont.draw(batch, "Star Wars - Alone Among the Droids", Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+    public void draw(SpriteBatch batch, String text) {
+        bitmapFont.draw(batch, text, Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 20);
+    }
+
+    public void drawInstruction(SpriteBatch batch, String text) {
+        bitmapFont.draw(batch, text, 20, Gdx.graphics.getHeight() - 20);
     }
 }

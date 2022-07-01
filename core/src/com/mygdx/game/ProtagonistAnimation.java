@@ -29,6 +29,7 @@ public class ProtagonistAnimation {
         animation.setPlayMode(mode);
     }
 
+
     public void setTime(float time) {
         this.time += time;
     }
