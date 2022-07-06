@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="80" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="7">
+<map version="1.8" tiledversion="1.8.6" orientation="orthogonal" renderorder="right-down" width="400" height="32" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="23">
  <tileset firstgid="1" name="Карта" tilewidth="1" tileheight="1" tilecount="0" columns="0"/>
  <tileset firstgid="1" name="ground7" tilewidth="16" tileheight="16" tilecount="64" columns="8">
   <image source="Ground&amp;Stone/Ground/ground7.png" width="128" height="128"/>
@@ -37,22 +37,45 @@
  <tileset firstgid="705" name="ground6" tilewidth="16" tileheight="16" tilecount="64" columns="8">
   <image source="Ground&amp;Stone/Ground/ground6.png" width="128" height="128"/>
  </tileset>
- <layer id="1" name="Слой тайлов 1" width="80" height="16">
+ <layer id="1" name="Слой тайлов 1" width="400" height="32">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup id="2" name="Camera">
-  <object id="1" name="Camera" x="192.5" y="106.5">
+  <object id="1" name="Camera" x="128" y="112">
    <point/>
   </object>
  </objectgroup>
  <objectgroup id="3" name="Coins">
-  <object id="5" name="LeftCoin" x="79.3333" y="108">
+  <object id="5" name="LeftCoin" x="80" y="112">
    <point/>
   </object>
-  <object id="6" name="RightCoin" x="1200" y="110">
+  <object id="6" name="RightCoin" x="304" y="112">
    <point/>
   </object>
+  <object id="11" x="400" y="112">
+   <point/>
+  </object>
+  <object id="12" x="496" y="112">
+   <point/>
+  </object>
+  <object id="13" x="592" y="112">
+   <point/>
+  </object>
+  <object id="15" x="800" y="112">
+   <point/>
+  </object>
+  <object id="16" x="896" y="112">
+   <point/>
+  </object>
+  <object id="17" x="992" y="112">
+   <point/>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="Land">
+  <object id="19" x="0" y="128" width="639" height="34"/>
+  <object id="20" x="768" y="128" width="509" height="29"/>
+  <object id="21" x="1374" y="139"/>
  </objectgroup>
 </map>
