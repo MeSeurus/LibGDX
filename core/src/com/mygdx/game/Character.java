@@ -24,7 +24,7 @@ public class Character {
         hitRight = new ProtagonistAnimation("hitRight.png", 5, 1, 16.0f, Animation.PlayMode.LOOP);
         stanceStartL = new ProtagonistAnimation("stanceStartL.png", 5, 1, 16.0f, Animation.PlayMode.NORMAL);
         stanceStartR = new ProtagonistAnimation("stanceStartR.png", 5, 1, 16.0f, Animation.PlayMode.NORMAL);
-        rect = new Rectangle(Gdx.graphics.getWidth() / 2 + runRight.getTexture().getRegionWidth() / 4, Gdx.graphics.getHeight() / 2 - runRight.getTexture().getRegionHeight() / 4,
+        rect = new Rectangle(Gdx.graphics.getWidth() / 2 + runRight.getTexture().getRegionWidth() / 4 - 65, Gdx.graphics.getHeight() / 2 - runRight.getTexture().getRegionHeight() / 4,
                 runRight.getTexture().getRegionWidth() / 2, runRight.getTexture().getRegionHeight());
 
         pos = new Vector2(0,0);
