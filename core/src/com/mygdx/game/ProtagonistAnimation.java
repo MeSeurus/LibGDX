@@ -24,16 +24,11 @@ public class ProtagonistAnimation {
                 subRegions[k++] = innerRegion;
             }
         }
-//        int count = 0;
-//        for (int i = 0; i < height; i++) {
-//            for (int j = 0; j < width; j++) {
-//                subRegions[count++] = regions[i][j];
-//            }
-//        }
 
         animation = new Animation<>(1.0f/fps, subRegions);
         animation.setPlayMode(mode);
     }
+
 
     public void setTime(float time) {
         this.time += time;
